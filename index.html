@@ -24,7 +24,7 @@
               <div class=" dropdown is-hoverable is-justify-content-center is-flex is-align-items-center">
                   <div class="dropdown-trigger">
                     <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                      <span>Dropdown button</span>
+                      <span>Saved Exercises</span>
                       <span class="icon is-small">
                         <i class="fas fa-angle-down" aria-hidden="true"></i>
                       </span>
@@ -32,27 +32,7 @@
                   </div>
                   <div class="dropdown-menu " id="dropdown-menu" role="menu">
                     <div class="dropdown-content" id="dropdown-li">
-                      <a href="#" class="dropdown-item">
-                        Dropdown item
-                        <button>+</button>
-                      </a>
-                      <a class="dropdown-item">
-                        Other dropdown item
-                        <button>+</button>
-                      </a>
-                      <a href="#" class="dropdown-item">
-                       Other dropdown item
-                       <button>+</button>
-                      </a>
-                      <a href="#" class="dropdown-item">
-                        Other dropdown item
-                        <button>+</button>
-                      </a>
-                      <hr class="dropdown-divider">
-                      <a href="#" class="dropdown-item">
-                        With a divider
-                        <button>+</button>
-                      </a>
+                      <ul id="list-item"></ul>
                     </div>
                   </div>
                 </div >
@@ -65,9 +45,9 @@
                  <div>
                   <form id="form-input">
                     <input type="text" name="exercise-name" placeholder="Exercise Name">
-                    <input type="number" name="sets" placeholder="Sets">
-                    <input type="number" name="reps"  placeholder="Reps" >
-                    <input type="number" name="weight" placeholder="Weight">
+                    <input type="text" name="sets" placeholder="Sets">
+                    <input type="text" name="reps"  placeholder="Reps" >
+                    <input type="text" name="weight" placeholder="Weight">
                     <button id="form-btn" type="submit">+</button>
                   </form>
                  </div>

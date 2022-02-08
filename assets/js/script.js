@@ -1,6 +1,6 @@
 var formInputEl = document.querySelector("#form-input")
 var formBtnEl = document.querySelector("#form-btn")
-var exerciseIdCounter = 0;
+
 var dropdownLiEl = document.querySelector("#dropdown-li")
 
 var exercise = [];
@@ -18,37 +18,60 @@ var formSubmitHandler = function(event) {
   var setsInput = document.querySelector("input[name='sets']").value;
   var repsInput = document.querySelector("input[name='reps']").value;
   var weightInput = document.querySelector("input[name='weight']").value;
-  console.log(exerciseNameInput, setsInput, repsInput, weightInput)
+  
+
+
+  // reset form fields for next exercise to be entered
+  document.querySelector("input[name='exercise-name']").value = "";
+  document.querySelector("input[name='sets']").value = "";
+  document.querySelector("input[name='reps']").value = "";
+  document.querySelector("input[name='weight']").value = "";
+  
 
   var exerciseDataInput = {
-    exerciseNameInput,
-    setsInput,
-    repsInput,
-    weightInput
+    name: exerciseNameInput,
+    sets: setsInput,
+    reps: repsInput,
+    weight: weightInput
   };
+  // let exerciseString = JSON.stringify(exerciseDataInput)
   savedExercisesLi(exerciseDataInput);
+  console.log(setsInput, repsInput)
 }
 
 
 var savedExercisesLi = function(exerciseDataInput) {
-var listItemEl = document.createElement("li");
-listItemEl.setAttribute("data-exercise-id", exerciseIdCounter);
+ var listItemEl = document.querySelector("#list-item")
+ listItemEl = document.createElement("div");
+listItemEl.classList = "columns"
+// listItemEl.setAttribute("data-exercise-id");
 
-var exerciseInfoEl = document.createElement("div");
-exerciseInfoEl.innerHTML = "<h3>" + exerciseDataInput.name +"</h3>" ;
+var exerciseInfoEl = document.createElement("li");
+exerciseInfoEl.classList = "column is-half"
+ exerciseInfoEl.innerHTML = "<p>" + exerciseDataInput.name + "</p><p>" + 'Sets: ' + exerciseDataInput.sets + "</p><p>" + 'Reps: '+ exerciseDataInput.reps + "</p><p>" + 'Weight:' + exerciseDataInput.weight + "</p>" 
 
 var addBtn = document.createElement("button");
-addBtn.textContent = "+";
+addBtn.type = "button";
+addBtn.name = "addBtn"
+addBtn.innerText = "+";
 
 exerciseInfoEl.appendChild(addBtn);
 
 listItemEl.appendChild(exerciseInfoEl);
+ dropdownLiEl.append(exerciseInfoEl)
 
-exerciseDataInput.id = exerciseIdCounter;
 
 exercise.push(exerciseDataInput);
-dropdownLiEl.append(exerciseDataInput)
+
+
 }
+
+
+
+
+
+
+
 
 formBtnEl.addEventListener("click", formSubmitHandler) 
   
