@@ -1,6 +1,6 @@
 var formInputEl = document.querySelector("#form-input")
 var formBtnEl = document.querySelector("#form-btn")
-
+var selectedExrcEl = document.querySelector("#selected-exercise")
 var dropdownLiEl = document.querySelector("#dropdown-li")
 
 var exercise = [];
@@ -27,6 +27,10 @@ var formSubmitHandler = function(event) {
   document.querySelector("input[name='reps']").value = "";
   document.querySelector("input[name='weight']").value = "";
   
+  // check for inputs are empty(validate)
+if (exerciseNameInput === "" || setsInput ==="" || repsInput === "" || weightInput === ""){
+  return false;
+};
 
   var exerciseDataInput = {
     name: exerciseNameInput,
@@ -63,6 +67,12 @@ listItemEl.appendChild(exerciseInfoEl);
 
 exercise.push(exerciseDataInput);
 
+//addBtn.addEventListener("click")
+
+
+};
+
+var selectedExercise = function() {
 
 }
 
