@@ -2,9 +2,86 @@
     box-sizing: border-box;
 }
 
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:20px;
+}
+
+.wrapper{
+    position:relative;
+}
+
+.workout-div h1{
+    font-size:32px;
+    color:rgb(37, 37, 37);
+}
+
+.workout-div h2{
+    font-size:22px;
+    color:rgb(37, 37, 37);
+}
+
+.workout-div input, .workout-div select{
+    border: 1px solid #CCC;
+    padding: 8px;
+    margin-top:10px;
+    width:300px;
+    outline: none;
+    display:inline-block;
+    font-size:18px;
+}
+.workout-div button{
+    outline:none;
+    border:none;
+    display:inline-block;
+    border-radius:5px;
+    background-color:rgb(28, 75, 145);
+    color:#FFF;
+    padding:8px 15px;
+    font-size:18px;
+}
+
+.workout-div button:hover{
+    background-color:rgb(23, 62, 121);
+    cursor:pointer;
+}
+
+#ex-date{
+    width:130px;
+}
+
+.ex-row{
+    margin:10px;
+    padding:10px;
+    border:1px solid #CCC;
+    border-radius:5px;
+}
+.ex-col{
+    display:inline-block;
+    padding-right:10px;
+}
+
+.big-text{
+    width:280px !important;
+}
+
+.small-text{
+    width:75px !important;
+}
+
+.column input{
+    display:inline-block;
+}
+
+#selected-exercises-wrapper{
+    visibility:hidden;
+}
+
 
 .modal-content {
     height: 100%;
     width: 100%;
 }
+
+
 

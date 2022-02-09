@@ -13,62 +13,53 @@
 
     <button id="open" class="js-modal-trigger" data-target="modal-js-example">Open Modal</button>
   
+    <div class="modal " id="modal-js-example">
+        <div class="modal-background has-background-grey-lighter"></div>
+        <div class="modal-content">
   
-      <div class="modal " id="modal-js-example">
-          <div class="modal-background has-background-grey-lighter"></div>
-          <div class="modal-content ">
+            <div class="workout-div is-flex is-flex-direction-column is-align-items-center">
+                <h1>Add Workout</h1>
+
+                <h2 class="mt-5">Date:</h2>
+                <input type="text" id="ex-date" placeholder="MM/DD/YYYY">
+                                
+                <h2 class="mt-5">Saved / Common Exercises</h2>
+                <div class="wrapper">
+                    <select id="saved-exercises">
+                        <option>Select an exercise</option>
+                    </select>
+                    <button id="add-saved-exercise">+</button>
+                </div>
   
-          <div class="workout-div is-flex is-flex-direction-column is-align-items-center">
-              <!--  Saved Exercises Dropdown Menu  -->
-             <div class="saved-exercises is-flex-direction-row p-6 ">
-              <div class=" dropdown is-hoverable is-justify-content-center is-flex is-align-items-center">
-                  <div class="dropdown-trigger">
-                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                      <span>Saved Exercises</span>
-                      <span class="icon is-small">
-                        <i class="fas fa-angle-down" aria-hidden="true"></i>
-                      </span>
-                    </button>
-                  </div>
-                  <div class="dropdown-menu " id="dropdown-menu" role="menu" >
-                    <div class="dropdown-content" id="dropdown-li">
-                      <ol id="list-item"></ol>
+                <h2 class="mt-5">Try Something New!</h2>
+                <div class="wrapper">
+                    <select id="random-exercises">
+                        <option>Select an exercise</option>
+                    </select>
+                    <button id="add-random-exercise">+</button>
+                </div>
+                
+                <h2 class="mt-5">Add Custom Exercise</h2>
+                <div class="wrapper">
+                    <input type="text" id="ex-name" placeholder="Exercise name">
+                    <button id="add-custom-exercise">+</button>
+                </div>
+                
+                <div class="p-3 is-flex is-flex-direction-column is-align-items-center" id="selected-exercises-wrapper">
+                    <h2>Selected Exercises</h2>
+                    
+                    <div class="mt-5" id="selected-exercises">
+                        
                     </div>
-                  </div>
-                </div >
-             </div>
-             <!--Saved Execises Dropdown Menu Done-->
+
+                    <button class="mt-3" id="add-workout">Add Workout</button>
+                </div>
   
-             <!--Custom Exercise Form Input-->
-    
-             <div class="custom-exercise p-6">
-                 <div>
-                  <form id="form-input">
-                    <input type="text" name="exercise-name" placeholder="Exercise Name">
-                    <input type="text" name="sets" placeholder="Sets">
-                    <input type="text" name="reps"  placeholder="Reps" >
-                    <input type="text" name="weight" placeholder="Weight">
-                    <button id="form-btn" type="submit">+</button>
-                  </form>
-                 </div>
              </div>
-  
-             <div class="p-6">
-                 <ul>
-                     <li><a href="#">Try Us Out Workout Api</a></li>
-                     <li>test</li>
-                 </ul>
-             </div>
-  
-             <div class="p-6" id="selected-exercise"><h2>Selected Exercises Here</h2> 
-                 <ul id="selected-list"></ul>
-             </div>
-  
-          </div>
           </div>
           <button class="modal-close is-large" aria-label="close"></button>
         </div>
-      
-      <script src="./assets/js/script.js"></script>
+     
+        <script src="./assets/js/script.js"></script>
   </body>
 </html>
