@@ -346,6 +346,20 @@ function loadSuggested(){
     });
 }
 
+function getQuote(){
+    fetch("https://type.fit/api/quotes")
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        random = randomNumber(0,data.length);
+        document.getElementById("quote-text").textContent = "\"" + data[random].text + "\"";
+        if(data[random].author != null){
+            document.getElementById("quote-author").textContent = "- " + data[random].author;
+        }
+    });
+}
+
 // Date checking function
 function isValidDate(dateString)
 {
