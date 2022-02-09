@@ -5,8 +5,85 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weight Training Tracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
+    <section class="hero is-info is-medium">
+                <a class="navbar-item">
+                    <img src="./assets/images/logo.jpg" alt="" class="src"></a> 
+        <header>
+            <h1 class="title has-text-centered">Weight Training Tracker</h1></a>
+        </header>
+    </section>
     
-</body>
+   
+
+    <section class="workoutDisplay py-6 mx-6 has-text-centered">
+        <button type="button" class="addWorkoutBtn is-focused" onclick="addWorkout()">Add Workout</button>
+    </section>
+    <script src="./assets/js/script.js"></script>
+
+<div class="has-text-centered ">
+    <button id="open" class="js-modal-trigger .is-$link is-align-items-center" data-target="modal-js-example">Open Modal</button>
+      <div class="modal" id="modal-js-example">
+          <!-- Add box borders  -->
+          <div class="modal-background has-background-primary-light"></div> 
+          <div class="modal-content ">
+  
+          <div class="workout-div is-flex is-flex-direction-column is-align-items-center">
+              <!--  Saved Exercises Dropdown Menu  -->
+             <div class="saved-exercises is-flex-direction-row p-6 ">
+              <div class=" dropdown is-hoverable is-justify-content-center is-flex is-align-items-center">
+                  <div class="dropdown-trigger">
+                    <button class="button has-background-grey-light" aria-haspopup="true" aria-controls="dropdown-menu">
+                      <span class="has-text-link has-text-right">  Saved Exercises</span>
+                      <!-- <span class="icon is-small"> -->
+                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </button>
+                  </div>
+                  <div class="dropdown-menu " id="dropdown-menu" role="menu">
+                    <div class="dropdown-content" id="dropdown-li">
+                      <ul id="list-item"></ul>
+                    </div>
+                  </div>
+                </div >
+             </div>
+             <!--Saved Execises Dropdown Menu Done-->
+  
+             <!--Custom Exercise Form Input-->
+    
+             <div class="custom-exercise p-6 box has-background-primary py-6 m-3">
+                 <div>
+                  <form id="form-input">
+                    <input type="text" name="exercise-name" placeholder="Exercise Name">
+                    <input type="text" name="sets" placeholder="Sets">
+                    <input type="text" name="reps"  placeholder="Reps" >
+                    <input type="text" name="weight" placeholder="Weight">
+                    <button class= "button is-success is-light is-rounded"id="form-btn" type="submit">+</button>
+                  </form>
+                 </div>
+             </div>
+  
+             <div class="p-6 box ">
+                 <ul>
+                     <li><a href="#">Try Us Out Workout Api</a></li>
+                     <li>test</li>
+                 </ul>
+             </div>
+  
+             <div class="p-6 box" id="selected-exercise"><h2>Selected Exercises Here</h2> 
+                 <ul></ul>
+             </div>
+  
+          </div>
+          </div>
+          <!-- Try and make button color appear only when hovering? -->
+          <button class="modal-close is-large has-background-danger" aria-label="close"></button>
+        </div>
+        </div>
+      
+      <script src="./assets/js/script.js"></script>
+  </body>
 </html>
