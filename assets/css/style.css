@@ -7,6 +7,14 @@ body{
     font-size:20px;
 }
 
+header {
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    padding:10px;
+    font-size: 30px;
+}
+
 .wrapper{
     position:relative;
 }
@@ -82,6 +90,103 @@ body{
     height: 100%;
     width: 100%;
 }
+
+
+.workoutDisplay {
+    height: 100vh;
+    max-width:1200px;
+    text-align: center;
+    margin:0 auto;
+}
+
+.addWorkoutBtn {
+    border:none;
+    border-radius:5px;
+    margin-top:20px;
+    background-color: rgb(28, 75, 145);
+    color: white;
+    padding:10px 30px;
+    font-size: larger;
+}
+
+.addWorkoutBtn:hover {
+    background-color: rgb(19, 58, 117);
+    cursor:pointer;
+}
+
+/*sets checkbox to hidden*/
+input[type='checkbox'] {
+    display: none;
+}
+
+/*label toggle styling*/
+.lbl-toggle {
+    display: block;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem;
+    color: rgb(27, 27, 27);
+    background: lightgray;
+    cursor: pointer;
+    transition: all 0.25s ease-out;
+}
+
+/*enables color when hovering over label*/
+.lbl-toggle:hover {
+    color: #7C5A0B;
+}
+
+/*collapses workout content*/
+.collapsible-content {
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height .25s ease-in-out;
+}
+
+/*toggles/expands workout div*/
+.toggle:checked + .lbl-toggle + .collapsible-content {
+    max-height: 100vh;
+}
+
+.toggle:checked + .lbl-toggle::before {
+    transform: rotate(90deg) translateX(-3px);
+}
+  
+.toggle:checked + .lbl-toggle {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/*workout div styling*/
+.prevWorkoutDiv {
+    background-color: grey;
+    width:100%;
+    padding:15px;
+    margin:0 auto;
+}
+
+.currWorkoutDiv {
+    background-color: rgb(155, 223, 142);
+    width:100%;
+    padding:15px;
+    margin:0 auto;
+}
+
+.prevWorkoutDiv p, .currWorkoutDiv p, .nextWorkoutDiv p{
+    margin-top:10px;
+    font-size:18px;
+}
+
+.nextWorkoutDiv {
+    background-color: blue;
+    width: 100%;
+    padding:15px;
+    margin:0 auto;
+}
+
 
 
 

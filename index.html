@@ -11,8 +11,52 @@
 <body>
 
 
-    <button id="open" class="js-modal-trigger" data-target="modal-js-example">Open Modal</button>
+    <!-- <button id="open" class="js-modal-trigger" data-target="modal-js-example">Open Modal</button> -->
   
+    <header>
+      <img src="./assets/images/logo.png" style="height:120px;"><br>
+      <h1>Weight Training Tracker</h1>
+    </header>
+
+    <section class="workoutDisplay">
+        <button type="button" class="addWorkoutBtn" onclick="openModal();">Add Workout</button>
+        
+        <div class="mt-5">
+            <input id="collapsible" class="toggle" type="checkbox">
+            <label for="collapsible" class="lbl-toggle">Previous Workout</label>
+            <div class="collapsible-content">
+                <div class="prevWorkoutDiv">
+                    <h2>Previous Content</h2>
+
+                    <div class="mt-5" id="previous-workout"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-5">
+            <input id="collapsible2" class="toggle" type="checkbox" checked>
+            <label for="collapsible2" class="lbl-toggle">Current Workout</label>
+            <div class="collapsible-content">
+                <div class="currWorkoutDiv">
+                    <div id="current-workout"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-5">
+            <input id="collapsible3" class="toggle" type="checkbox">
+            <label for="collapsible3" class="lbl-toggle">Next Workout</label>
+            <div class="collapsible-content">
+                <div class="nextWorkoutDiv">
+                    <h2>Next Content</h2>
+
+                    <div class="mt-5" id="next-workout"></div>
+                </div>
+            </div>
+        </div>
+    
+    </section>
+
     <div class="modal " id="modal-js-example">
         <div class="modal-background has-background-grey-lighter"></div>
         <div class="modal-content">
