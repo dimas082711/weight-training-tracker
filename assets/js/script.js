@@ -1,8 +1,8 @@
 var formInputEl = document.querySelector("#form-input")
 var formBtnEl = document.querySelector("#form-btn")
 var selectedExrcEl = document.querySelector("#selected-exercise")
-var dropdownLiEl = document.querySelector("#dropdown-li")
-
+var dropdownLiEl = document.querySelector("#list-item")
+var selectedListEl = document.querySelector("#selected-list")
 var exercise = [];
 
 
@@ -14,7 +14,7 @@ var formSubmitHandler = function(event) {
   
 
   //get value from input element
-  var exerciseNameInput = document.querySelector("input[name='exercise-name']").value;
+  var exerciseNameInput = document.querySelector("input[name='exercise-name']").value.trim();
   var setsInput = document.querySelector("input[name='sets']").value;
   var repsInput = document.querySelector("input[name='reps']").value;
   var weightInput = document.querySelector("input[name='weight']").value;
@@ -38,21 +38,23 @@ if (exerciseNameInput === "" || setsInput ==="" || repsInput === "" || weightInp
     reps: repsInput,
     weight: weightInput
   };
-  // let exerciseString = JSON.stringify(exerciseDataInput)
+  
+  
   savedExercisesLi(exerciseDataInput);
-  console.log(setsInput, repsInput)
+  console.log(exerciseDataInput)
 }
 
 
 var savedExercisesLi = function(exerciseDataInput) {
- var listItemEl = document.querySelector("#list-item")
- listItemEl = document.createElement("div");
-listItemEl.classList = "columns"
-// listItemEl.setAttribute("data-exercise-id");
 
-var exerciseInfoEl = document.createElement("li");
-exerciseInfoEl.classList = "column is-half"
- exerciseInfoEl.innerHTML = "<p>" + exerciseDataInput.name + "</p><p>" + 'Sets: ' + exerciseDataInput.sets + "</p><p>" + 'Reps: '+ exerciseDataInput.reps + "</p><p>" + 'Weight:' + exerciseDataInput.weight + "</p>" 
+ var listItemEl = document.querySelector("#list-item")
+ listItemEl = document.createElement("li");
+listItemEl.classList = ""
+
+
+var exerciseInfoEl = document.createElement("div");
+exerciseInfoEl.classList = "p-2"
+ exerciseInfoEl.innerHTML = "<h2>" + exerciseDataInput.name + "</h2><p>" + 'Sets: ' + exerciseDataInput.sets + "</p><p>" + 'Reps: '+ exerciseDataInput.reps + "</p><p>" + 'Weight:' + exerciseDataInput.weight + "</p>" 
 
 var addBtn = document.createElement("button");
 addBtn.type = "button";
@@ -62,21 +64,34 @@ addBtn.innerText = "+";
 exerciseInfoEl.appendChild(addBtn);
 
 listItemEl.appendChild(exerciseInfoEl);
- dropdownLiEl.append(exerciseInfoEl)
+ dropdownLiEl.appendChild(listItemEl)
 
 
 exercise.push(exerciseDataInput);
 
-//addBtn.addEventListener("click")
+//addBtn.addEventListener("click", selectedExercise)
 
-
+selectedExercise(exerciseDataInput);
 };
 
-var selectedExercise = function() {
+var selectedExercise = function(exerciseDataInput) {
+var selectedList = document.createElement("li");
+var selectedBtn = document.createElement("button");
+selectedBtn.type = "button";
+selectedBtn.name = "selectedBtn";
+selectedBtn.innerText = "-";
+
+var selectedExerciseList = document.createElement("div");
+ //selectedExerciseList.innerHTML = "<h2>" + exerciseDataInput.name + "</h2><p>" + 'Sets: ' + exerciseDataInput.sets + "</p><p>" + 'Reps: '+ exerciseDataInput.reps + "</p><p>" + 'Weight:' + exerciseDataInput.weight + "</p>"
+
+selectedList.append(selectedBtn, selectedExerciseList);
+
+selectedListEl.appendChild(selectedList);
+
 
 }
 
-
+selectedExercise();
 
 
 

@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+}
+
+
 .modal-content {
     height: 100%;
     width: 100%;
