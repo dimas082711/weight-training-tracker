@@ -9,20 +9,69 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <section class="hero is-info is-medium">
-                <a class="navbar-item">
-                    <img src="./assets/images/logo.jpg" alt="" class="src"></a> 
-        <header>
-            <h1 class="title has-text-centered">Weight Training Tracker</h1></a>
-        </header>
+    <!-- Resize image and make bar look nicer -->
+    <section class="hero is-medium is-primary">
+    <div class="hero-head">
+        <nav class="navbar">
+          <div class="container">
+            <div class="navbar-brand is-64x64">
+              <a class="navbar-item is-64x64">
+                <img src="./assets/images/logo.png" alt="Logo">
+              </a>
+              <span class="navbar-burger" data-target="navbarMenuHeroA">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </div>
+            <div id="navbarMenuHeroA" class="navbar-menu">
+              <div class="navbar-end is-medium">
+                <a class="navbar-item has-text-centered has-text-black">
+                  Weight Training Tracker
+                </a>
+            </div>
+            </div>
+        </nav>
+    </div>
     </section>
+
+    
+
+
+
+
+    <!-- <section class="hero is-info is-medium">
+        <nav class="navbar">
+            <div class="container">
+              <div class="navbar-brand">
+                <a class="navbar-item">
+        <header>
+        <h1 class=“title has-text-centered”>Weight Training Tracker</h1></a>
+        <a class=“navbar-item”>
+            <img src=“assets/images/logo.jpg” alt="logo"> </a>
+        </header>
+    </section> -->
     
    
 
     <section class="workoutDisplay py-6 mx-6 has-text-centered">
-        <button type="button" class="addWorkoutBtn is-focused" onclick="addWorkout()">Add Workout</button>
+        <div class="py-6"><button type="button" class="addWorkoutBtn is-focused" onclick="addWorkout()">Add Workout</button> </div>
+
+        <div class="box has-background-grey-light">
+            <h2>Previous Workout</h2>
+        </div>
+
+        <div class="box has-background-success">
+            <h2>Current Workout</h2>
+        </div>
+
+        <div class="box has-background-primary">
+            <h2>Next Workout</h2>
+        </div>
+
     </section>
     <script src="./assets/js/script.js"></script>
+
 
 <div class="has-text-centered ">
     <button id="open" class="js-modal-trigger .is-$link is-align-items-center" data-target="modal-js-example">Open Modal</button>
