@@ -89,6 +89,11 @@ input[type='checkbox'] {
     margin:0 auto;
 }
 
+.prevWorkoutDiv p, .currWorkoutDiv p, .nextWorkoutDiv p{
+    margin-top:10px;
+    font-size:18px;
+}
+
 .nextWorkoutDiv {
     background-color: blue;
     width: 100%;
