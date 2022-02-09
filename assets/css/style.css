@@ -23,9 +23,63 @@ header {
     font-size: larger;
 }
 
+/*sets checkbox to hidden*/
+input[type='checkbox'] {
+    display: none;
+}
+
+/*label toggle styling*/
+.lbl-toggle {
+    display: block;
+    
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-align: center;
+    
+    padding: 1rem;
+    
+    color: black;
+    background: lightgray;
+    
+    cursor: pointer;
+    
+    border-radius: 7px;
+    transition: all 0.25s ease-out;
+}
+
+/*enables color when hovering over label*/
+.lbl-toggle:hover {
+    color: #7C5A0B;
+}
+
+/*collapses workout content*/
+.collapsible-content {
+    max-height: 0px;
+    overflow: hidden;
+  
+    transition: max-height .25s ease-in-out;
+}
+
+/*toggles/expands workout div*/
+.toggle:checked + .lbl-toggle + .collapsible-content {
+    max-height: 100vh;
+}
+
+.toggle:checked + .lbl-toggle::before {
+    transform: rotate(90deg) translateX(-3px);
+}
+  
+.toggle:checked + .lbl-toggle {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/*workout div styling*/
 .prevWorkoutDiv {
     background-color: grey;
-    height: 30%;
+    height: 20vh;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -33,7 +87,7 @@ header {
 
 .currWorkoutDiv {
     background-color: greenyellow;
-    height: 30%;
+    height: 20vh;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -41,7 +95,7 @@ header {
 
 .nextWorkoutDiv {
     background-color: blue;
-    height: 30%;
+    height: 20vh;
     width: 80%;
     margin-left: auto;
     margin-right: auto;

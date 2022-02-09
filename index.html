@@ -15,18 +15,37 @@
 
         <section class="workoutDisplay">
             <button type="button" class="addWorkoutBtn" onclick="addWorkout()">Add Workout</button>
-
-            <div class="prevWorkoutDiv">
-                <h2>Previous Workout</h2>
+            
+            <div class="prevWrap">
+                <input id="collapsible" class="toggle" type="checkbox">
+                <label for="collapsible" class="lbl-toggle">Previous Workout</label>
+                <div class="collapsible-content">
+                    <div class="prevWorkoutDiv">
+                        <h2>Previous Content</h2>
+                    </div>
+                </div>
             </div>
-
-            <div class="currWorkoutDiv">
-                <h2>Current Workout</h2>
+            
+            <div class="currWrap">
+                <input id="collapsible2" class="toggle" type="checkbox" checked>
+                <label for="collapsible2" class="lbl-toggle">Current Workout</label>
+                <div class="collapsible-content">
+                    <div class="currWorkoutDiv">
+                        <h2>Current Content</h2>
+                    </div>
+                </div>
             </div>
-
-            <div class="nextWorkoutDiv">
-                <h2>Next Workout</h2>
+            
+            <div class="nextWrap">
+                <input id="collapsible3" class="toggle" type="checkbox">
+                <label for="collapsible3" class="lbl-toggle">Next Workout</label>
+                <div class="collapsible-content">
+                    <div class="nextWorkoutDiv">
+                        <h2>Next Content</h2>
+                    </div>
+                </div>
             </div>
+        
         </section>
         <script src="./assets/js/script.js"></script>
     </body>
