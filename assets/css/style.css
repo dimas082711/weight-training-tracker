@@ -16,10 +16,7 @@ header {
     font-size: 30px;
 }
 
-.wrapper{
-    position:relative;
-}
-
+/* Modal Styling */
 .workout-div h1{
     font-size:32px;
     color:rgb(37, 37, 37);
@@ -65,11 +62,13 @@ header {
     border:1px solid #CCC;
     border-radius:5px;
 }
+
 .ex-col{
     display:inline-block;
     padding-right:10px;
 }
 
+/* Text Box Sizing */
 .big-text{
     width:280px !important;
 }
@@ -78,21 +77,21 @@ header {
     width:75px !important;
 }
 
-.column input{
-    display:inline-block;
-}
-
 #selected-exercises-wrapper{
     visibility:hidden;
 }
 
+.wrapper{
+    position:relative;
+}
 
 .modal-content {
     height: 100%;
     width: 100%;
 }
+/* End of modal styling */
 
-
+/* Main page */
 .workoutDisplay {
     height: 100vh;
     max-width:1200px;
@@ -115,12 +114,12 @@ header {
     cursor:pointer;
 }
 
-/*sets checkbox to hidden*/
+/* Collapsible DIV - Uses hidden checkbox for function */
 input[type='checkbox'] {
     display: none;
 }
 
-/*label toggle styling*/
+/* Label toggle styling */
 .lbl-toggle {
     display: block;
     font-weight: bold;
@@ -135,20 +134,20 @@ input[type='checkbox'] {
     transition: all 0.25s ease-out;
 }
 
-/*enables color when hovering over label*/
+/* Enables color when hovering over label */
 .lbl-toggle:hover {
     /* color: #7C5A0B; */
     background: rgb(194, 194, 194);
 }
 
-/*collapses workout content*/
+/* Collapses workout content */
 .collapsible-content {
     max-height: 0px;
     overflow: hidden;
     transition: max-height .25s ease-in-out;
 }
 
-/*toggles/expands workout div*/
+/* Toggles/expands workout div */
 .toggle:checked + .lbl-toggle + .collapsible-content {
     max-height: 100vh;
 }
@@ -162,7 +161,7 @@ input[type='checkbox'] {
     border-bottom-left-radius: 0;
 }
 
-/*workout div styling*/
+/* Workout DIVs */
 .prevWorkoutDiv {
     background-color: rgb(209, 100, 100);
     width:100%;
@@ -177,24 +176,24 @@ input[type='checkbox'] {
     margin:0 auto;
 }
 
-.prevWorkoutDiv p, .currWorkoutDiv p, .nextWorkoutDiv p{
-    margin-top:10px;
-    font-size:18px;
-}
-
 .nextWorkoutDiv {
     background-color: rgb(86, 116, 201);
     width: 100%;
     padding:15px;
     margin:0 auto;
 }
+/* End of workout DIVs */
 
+.prevWorkoutDiv p, .currWorkoutDiv p, .nextWorkoutDiv p{
+    margin-top:10px;
+    font-size:18px;
+}
+
+/* Motivational Quote */
 .quote-wrapper{
     max-width:800px;
     border-top:1px solid #CCC;
     border-bottom:1px solid #CCC;
-    /* border-radius:10px; */
-    /* background-color:rgb(245, 245, 245); */
     padding:20px;
     margin:0 auto;
 }
@@ -202,6 +201,8 @@ input[type='checkbox'] {
 #quote-author{
     color:rgb(31, 76, 128)
 }
+/* End of motivational quote */
+/* End of main page */
 
 
 
