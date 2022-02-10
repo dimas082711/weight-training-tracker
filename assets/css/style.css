@@ -3,8 +3,8 @@
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:20px;
+    font-family:Arial, Helvetica, sans-serif !important;
+    font-size:20px !important;
     color:rgb(22, 22, 22) !important;
 }
 
@@ -137,7 +137,8 @@ input[type='checkbox'] {
 
 /*enables color when hovering over label*/
 .lbl-toggle:hover {
-    color: #7C5A0B;
+    /* color: #7C5A0B; */
+    background: rgb(194, 194, 194);
 }
 
 /*collapses workout content*/
@@ -186,6 +187,20 @@ input[type='checkbox'] {
     width: 100%;
     padding:15px;
     margin:0 auto;
+}
+
+.quote-wrapper{
+    max-width:800px;
+    border-top:1px solid #CCC;
+    border-bottom:1px solid #CCC;
+    /* border-radius:10px; */
+    /* background-color:rgb(245, 245, 245); */
+    padding:20px;
+    margin:0 auto;
+}
+
+#quote-author{
+    color:rgb(31, 76, 128)
 }
 
 

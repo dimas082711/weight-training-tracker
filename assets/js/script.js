@@ -231,6 +231,8 @@ document.addEventListener('DOMContentLoaded', () => {
         workouts = newArr;
     }
 
+    getQuote();
+    
     displayWorkouts();
     
     // Functions to open and close a modal
@@ -413,15 +415,12 @@ function displayWorkouts(){
 
       if(curr.length > 0){
           // Place workout data into current div
-          var str = "";
+          
           str = "<strong>" + (today.getMonth()+1) + "/" + today.getDate() + "/" + today.getFullYear() + "</strong>";
-          for(var a=0;a<workouts.length;a++){
-              var newDate = new Date(workouts[a].date);
-              if(newDate.getTime() === today.getTime()){
-                  str += "<p>" + workouts[a].name + " | Sets: " + workouts[a].sets + " | Reps: " + workouts[a].reps + " | Weight: " + workouts[a].weight + "</p>";
-                  
-              }
+          for(var a=0;a<curr.length;a++){
+            str += "<p>" + curr[a].name + " | Sets: " + curr[a].sets + " | Reps: " + curr[a].reps + " | Weight: " + curr[a].weight + "</p>";
           }
+  
           currentWorkout.innerHTML = str;
       }else{
           currentWorkout.innerHTML = "No current workouts found";
