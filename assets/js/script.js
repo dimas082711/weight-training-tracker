@@ -1,14 +1,14 @@
-var selectedExrcEl = document.querySelector("#selected-exercises")
-var dropdownLiEl = document.querySelector("#list-item")
-var selectedListEl = document.querySelector("#selected-list")
-var savedExercises = document.getElementById("saved-exercises");
+var selectedExrcEl = document.getElementById("selected-exercises"); //DIV
+var savedExercises = document.getElementById("saved-exercises"); // Select Element
+var randomExercises = document.getElementById("random-exercises"); // Select Element
 
-// Default exercises - will load more from localStorage if they exist
+// Default exercises - only used on first load, after that will load from localStorage
 var exercises = ['Bench Press','Squat','Deadlift','Row','Plank','Push-Up'];
 
 // Workouts - pulled from localStorage if they exist
 var workouts = [];
 
+// Add workout, after validating exercise data
 function addWorkout(){
     var exerciseItems = document.getElementsByClassName("ex-row");
 
@@ -33,7 +33,7 @@ function addWorkout(){
 
     //Clear everything for next workout to be added
     document.getElementById("ex-date").value = "";
-    document.getElementById("saved-exercises").selectedIndex = 0;
+    savedExercises.selectedIndex = 0;
     document.getElementById("ex-name").value = "";
     document.getElementById("selected-exercises-wrapper").style.visibility = "hidden";
 
@@ -55,8 +55,8 @@ function addExercise(name) {
             alert("Exercise already entered!");
             
             // Reset dropdown and text box
-            document.getElementById("saved-exercises").selectedIndex = 0;
-            document.getElementById("random-exercises").selectedIndex = 0;
+            savedExercises.selectedIndex = 0;
+            randomExercises.selectedIndex = 0;
             document.getElementById("ex-name").value = "";
 
             return;
@@ -74,8 +74,8 @@ function addExercise(name) {
     str += "</div>";
     
     // Reset dropdown and text box
-    document.getElementById("saved-exercises").selectedIndex = 0;
-    document.getElementById("random-exercises").selectedIndex = 0;
+    savedExercises.selectedIndex = 0;
+    randomExercises.selectedIndex = 0;
     document.getElementById("ex-name").value = "";
 
     selectedExrcEl.innerHTML += str;
@@ -165,8 +165,8 @@ document.getElementById("selected-exercises").addEventListener("click", function
 
 // Add exercise from saved dropdown
 document.getElementById("add-saved-exercise").addEventListener("click", function(){
-    var savedOptions = document.getElementById("saved-exercises").options;
-    var index = document.getElementById("saved-exercises").selectedIndex;
+    var savedOptions = savedExercises.options;
+    var index = savedExercises.selectedIndex;
     
     if(index != 0){
         addExercise(savedOptions[index].text);
@@ -175,8 +175,8 @@ document.getElementById("add-saved-exercise").addEventListener("click", function
 
 // Add exercise from random dropdown
 document.getElementById("add-random-exercise").addEventListener("click", function(){
-    var randomOptions = document.getElementById("random-exercises").options;
-    var index = document.getElementById("random-exercises").selectedIndex;
+    var randomOptions = randomExercises.options;
+    var index = randomExercises.selectedIndex;
     
     if(index != 0){
         addExercise(randomOptions[index].text);
@@ -190,21 +190,6 @@ document.getElementById("add-custom-exercise").addEventListener("click", functio
         addExercise(value);
     }
 });
-
-var selectedExercise = function(exerciseDataInput) {
-    var selectedList = document.createElement("li");
-    var selectedBtn = document.createElement("button");
-    selectedBtn.type = "button";
-    selectedBtn.name = "selectedBtn";
-    selectedBtn.innerText = "-";
-
-    var selectedExerciseList = document.createElement("div");
-    selectedExerciseList.innerHTML = "<h2>" + exerciseDataInput.name + "</h2><p>" + 'Sets: ' + exerciseDataInput.sets + "</p><p>" + 'Reps: '+ exerciseDataInput.reps + "</p><p>" + 'Weight:' + exerciseDataInput.weight + "</p>"
-
-    selectedList.append(selectedBtn, selectedExerciseList);
-
-    selectedListEl.appendChild(selectedList);
-}
 
 document.addEventListener('DOMContentLoaded', () => {
     // Bring in exercises from localStorage if they exist into local array
@@ -249,8 +234,8 @@ document.addEventListener('DOMContentLoaded', () => {
       var exerciseItems = document.getElementsByClassName("ex-row");
 
       document.getElementById("ex-date").value = "";
-      document.getElementById("saved-exercises").selectedIndex = 0;
-      document.getElementById("random-exercises").selectedIndex = 0;
+      savedExercises.selectedIndex = 0;
+      randomExercises.selectedIndex = 0;
       document.getElementById("ex-name").value = "";
       document.getElementById("selected-exercises-wrapper").style.visibility = "hidden";
 
@@ -268,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
       var exerciseItems = document.getElementsByClassName("ex-row");
 
       document.getElementById("ex-date").value = "";
-      document.getElementById("saved-exercises").selectedIndex = 0;
+      savedExercises.selectedIndex = 0;
       document.getElementById("ex-name").value = "";
       document.getElementById("selected-exercises-wrapper").style.visibility = "hidden";
 
@@ -318,8 +303,6 @@ function loadSuggested(){
     })
     .then(response => {
         response.json().then(function(data) {
-            var randomExercises = document.getElementById("random-exercises");
-
             // Remove options from random exercise dropdown to load 5 new ones
             if(randomExercises.length > 0){
                 for(var a=randomExercises.length;a>0;a--){
@@ -435,26 +418,13 @@ function displayWorkouts(){
           //     nextDate = next[a].date;
           //   }
           // }
-          
-          // console.log ("next in line is " + nextDate);
-        
+       
           nextWorkout.innerHTML = "Future workouts found.."
       }else{
           nextWorkout.innerHTML = "No future workouts found";
       }
 
   }
-
-  // Date functions
-
-  // Look in workouts object for dates before today
-  // If none exist, say no previous workout found
-
-  // Iterate workouts object for todays date
-  // If no today, display no current workout
-
-  // Look in workouts object for dates beyond today
-  // If none found, say no future workouts found
 }
 
 
