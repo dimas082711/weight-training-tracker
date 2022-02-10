@@ -349,7 +349,9 @@ function loadSuggested(){
 }
 
 function displayWorkouts(){
+  var prevWorkout = document.getElementById("previous-workout");
   var currentWorkout = document.getElementById("current-workout");
+  var nextWorkout = document.getElementById("next-workout");
 
   if(localStorage.getItem("workouts") != null){
       workouts = JSON.parse(localStorage.getItem("workouts"));
@@ -363,29 +365,53 @@ function displayWorkouts(){
 
       today = new Date(today);
 
-      var prev = false;
-      var curr = false;
-      var next = false;
+      var prev = [];
+      var curr = [];
+      var next = [];
 
       for(var a=0;a<workouts.length;a++){
           var newDate = new Date(workouts[a].date);
           
           if(newDate.getTime() < today.getTime()){
-              prev = true;
+              prev.push({
+                date:workouts[a].date,
+                name:workouts[a].name,
+                sets:workouts[a].sets,
+                reps:workouts[a].reps,
+                weight:workouts[a].weight
+              });
+
+              
           }else if(newDate.getTime() === today.getTime()){
-              curr = true;
+            curr.push({
+              date:workouts[a].date,
+              name:workouts[a].name,
+              sets:workouts[a].sets,
+              reps:workouts[a].reps,
+              weight:workouts[a].weight
+            });
           }else if(newDate.getTime() > today.getTime()){
-              next = true;
+            next.push({
+              date:workouts[a].date,
+              name:workouts[a].name,
+              sets:workouts[a].sets,
+              reps:workouts[a].reps,
+              weight:workouts[a].weight
+            });
           }
       }
 
-      if(prev){
+      console.log(prev);
+      console.log(curr);
+      console.log(next);
+
+      if(prev.length > 0){
           //Perform date comparisons to find the workout nearest to today (going backward)
       }else{
-          // Text that says no previous workouts
+        prevWorkout.innerHTML = "No previous workouts found";
       }
 
-      if(curr){
+      if(curr.length > 0){
           // Place workout data into current div
           var str = "";
           str = "<strong>" + (today.getMonth()+1) + "/" + today.getDate() + "/" + today.getFullYear() + "</strong>";
@@ -401,10 +427,10 @@ function displayWorkouts(){
           currentWorkout.innerHTML = "No current workouts found";
       }
 
-      if(next){
-          //Perform date comparison for next available date
+      if(next.length > 0){
+          nextWorkout.innerHTML = "Future workouts found.."
       }else{
-          // Say no future workouts found
+          nextWorkout.innerHTML = "No future workouts found";
       }
 
   }
