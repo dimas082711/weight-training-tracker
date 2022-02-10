@@ -10,8 +10,6 @@ var exercises = ['Bench Press','Squat','Deadlift','Row','Plank','Push-Up'];
 var workouts = [];
 
 function addWorkout(){
-    console.log("add workout to localStorage")
-    
     var exerciseItems = document.getElementsByClassName("ex-row");
 
     for(var a=0;a<exerciseItems.length;a++){
@@ -215,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for(var a=0;a<newArr.length;a++){
             exercises[a] = newArr[a];
         }
-        console.log(exercises);
+        //console.log(exercises);
     }
 
     // Load the saved exercise dropdown
@@ -232,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     getQuote();
-    
+
     displayWorkouts();
     
     // Functions to open and close a modal
@@ -359,7 +357,7 @@ function displayWorkouts(){
       workouts = JSON.parse(localStorage.getItem("workouts"));
   }
 
-  console.log(workouts);
+  // console.log(workouts);
 
   if(workouts.length > 0){
       var tempDate = new Date();
@@ -403,19 +401,14 @@ function displayWorkouts(){
           }
       }
 
-      console.log(prev);
-      console.log(curr);
-      console.log(next);
-
       if(prev.length > 0){
-          //Perform date comparisons to find the workout nearest to today (going backward)
+          prevWorkout.innerHTML = "Previous workouts found.."
       }else{
-        prevWorkout.innerHTML = "No previous workouts found";
+          prevWorkout.innerHTML = "No previous workouts found";
       }
 
+      // Current Workout
       if(curr.length > 0){
-          // Place workout data into current div
-          
           str = "<strong>" + (today.getMonth()+1) + "/" + today.getDate() + "/" + today.getFullYear() + "</strong>";
           for(var a=0;a<curr.length;a++){
             str += "<p>" + curr[a].name + " | Sets: " + curr[a].sets + " | Reps: " + curr[a].reps + " | Weight: " + curr[a].weight + "</p>";
@@ -426,7 +419,25 @@ function displayWorkouts(){
           currentWorkout.innerHTML = "No current workouts found";
       }
 
+      // Next Workout - Uses todays date and comparison functionality
       if(next.length > 0){
+          // var index = 0;  
+          // var diff = 0;
+          // var prevDiff = 1;;
+          // var nextDate = "";
+          // for(var a=0;a<next.length;a++){
+          //   newDate = new Date(next[a].date);
+          //   diff = newDate.getTime() - today.getTime();
+          //   //console.log(next[a].date + ", difference = " + diff);
+          //   if(diff < prevDiff){
+          //     prevDiff = diff;
+          //     index = a;
+          //     nextDate = next[a].date;
+          //   }
+          // }
+          
+          // console.log ("next in line is " + nextDate);
+        
           nextWorkout.innerHTML = "Future workouts found.."
       }else{
           nextWorkout.innerHTML = "No future workouts found";
