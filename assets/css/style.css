@@ -8,22 +8,30 @@ body {
   color: rgb(22, 22, 22) !important;
 }
 
-header {
-  padding: 10px 15px;
+/* padding: 10px 15px;
   background-color: #6495ed;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   top: 0;
-  z-index: 9999;
+  z-index: 9999; */
+
+header {
+  background-color:#6495ed;
+  display: flex;
+  justify-content: space-between;
 }
 
 header h1 {
     font-weight: bold;
-    margin: 0;
     font-size: 36px;
     color: #000000;
+    margin-top:20px;
+
   }
+.header-p {
+    display:none
+}
 
 /* Modal Styling */
 .workout-div h1 {
