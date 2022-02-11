@@ -3,7 +3,7 @@
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif !important;
+    font-family:Arial, Helvetica, sans-serif;
     font-size:20px !important;
     color:rgb(22, 22, 22) !important;
 }
@@ -162,6 +162,11 @@ input[type='checkbox'] {
 }
 
 /* Workout DIVs */
+
+#previous-wrapper, #current-wrapper, #next-wrapper{
+    display:none;
+}
+
 .prevWorkoutDiv {
     background-color: rgb(209, 100, 100);
     width:100%;

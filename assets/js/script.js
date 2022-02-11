@@ -42,6 +42,8 @@ function addWorkout(){
     }
 
     localStorage.setItem("workouts", JSON.stringify(workouts));
+
+    displayWorkouts();
 }
 
 function addExercise(name) {
@@ -343,7 +345,11 @@ function displayWorkouts(){
   // console.log(workouts);
 
   if(workouts.length > 0){
-      var tempDate = new Date();
+    document.getElementById("previous-wrapper").style.display = "block";
+    document.getElementById("current-wrapper").style.display = "block";
+    document.getElementById("next-wrapper").style.display = "block";
+
+    var tempDate = new Date();
       var today = (tempDate.getMonth()+1) + "/" + tempDate.getDate() + "/" + tempDate.getFullYear();
 
       today = new Date(today);
@@ -424,6 +430,10 @@ function displayWorkouts(){
           nextWorkout.innerHTML = "No future workouts found";
       }
 
+  }else{
+    document.getElementById("previous-wrapper").style.display = "none";
+    document.getElementById("current-wrapper").style.display = "none";
+    document.getElementById("next-wrapper").style.display = "none";
   }
 }
 
