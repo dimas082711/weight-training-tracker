@@ -1,4 +1,273 @@
-.modal-content {
-    height: 100%;
-    width: 100%;
+* {
+    box-sizing: border-box;
+  }
+
+body {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 20px !important;
+  color: rgb(22, 22, 22) !important;
 }
+
+header {
+  padding: 10px 15px;
+  background-color: #6495ed;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  top: 0;
+  z-index: 9999;
+}
+
+header h1 {
+    font-weight: bold;
+    margin: 0;
+    font-size: 36px;
+    color: #000000;
+  }
+
+/* Modal Styling */
+.workout-div h1 {
+  font-size: 32px;
+  color: rgb(37, 37, 37);
+  font-weight:bold;
+}
+
+.workout-div h2 {
+  font-size: 22px;
+  color: rgb(37, 37, 37);
+  font-weight:bold;
+}
+
+.workout-div input,
+.workout-div select {
+  border: 1px solid #ccc;
+  padding: 8px;
+  margin-top: 10px;
+  width: 300px;
+  outline: none;
+  display: inline-block;
+  font-size: 18px;
+}
+.workout-div button {
+  outline: none;
+  border: none;
+  display: inline-block;
+  border-radius: 5px;
+  background-color: rgb(28, 75, 145);
+  color: #fff;
+  padding: 8px 15px;
+  font-size: 18px;
+}
+
+.workout-div button:hover {
+  background-color: rgb(23, 62, 121);
+  cursor: pointer;
+}
+
+.add-box {
+    width:500px;
+    border-style: solid;
+    border-radius: 25px;
+  padding: 20px;
+  border-width: 15px;
+  border-top-color: #8db0f2;
+  border-left-color: #8db0f2;
+  border-right-color: #6495ed;
+  border-bottom-color: #6495ed;
+  background-color: #bbd0f7;
+  text-align: center;
+  position:relative;
+  top:55px;
+}
+
+.exercises-div {
+    width:500px;
+    border-style: solid;
+    border-radius: 25px;
+  padding: 20px;
+  border-width: 15px;
+  border-top-color: #6495ed;
+  border-left-color: #6495ed;
+  border-right-color: #8db0f2;
+  border-bottom-color: #8db0f2;
+}
+
+.exercise-bg {
+    background-color: #e8effc;
+
+}
+
+.select-styles {
+    background-color:#e6ffee;
+    width:800px;
+    border-style: solid;
+    border-radius: 25px;
+    /* padding: left:50 right:50; */
+  border-width: 15px;
+  border-top-color: #00b33c;
+  border-left-color: #00b33c;
+  border-right-color: #00cc44;
+  border-bottom-color: #00cc44;
+  
+  
+}
+#ex-date {
+  width: 130px;
+}
+
+/* margin: 10px;
+  padding: 10px;
+    */
+
+.ex-row {
+  border: 1px solid #00b33c;
+  border-radius: 5px;
+  padding-bottom:5px;
+  padding-left:3px;
+  padding-right:3px;
+  margin-bottom:5px;
+  margin-top:5px;
+}
+
+.ex-col {
+  display: inline-block;
+  padding-right: 10px;
+}
+
+/* Text Box Sizing */
+.big-text {
+  width: 280px !important;
+}
+
+.small-text {
+  width: 75px !important;
+}
+
+#selected-exercises-wrapper {
+  visibility: hidden;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.modal-content {
+  height: 100%;
+  width: 100%;
+}
+/* End of modal styling */
+
+/* Main page */
+.workoutDisplay {
+  height: 100vh;
+  max-width: 1200px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.addWorkoutBtn {
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  background-color: rgb(28, 75, 145);
+  color: white;
+  padding: 10px 30px;
+  font-size: larger;
+}
+
+.addWorkoutBtn:hover {
+  background-color: rgb(19, 58, 117);
+  cursor: pointer;
+}
+
+/* Collapsible DIV - Uses hidden checkbox for function */
+input[type="checkbox"] {
+  display: none;
+}
+
+/* Label toggle styling */
+.lbl-toggle {
+  display: block;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1rem;
+  color: rgb(27, 27, 27);
+  background: lightgray;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+}
+
+/* Enables color when hovering over label */
+.lbl-toggle:hover {
+  /* color: #7C5A0B; */
+  background: rgb(194, 194, 194);
+}
+
+/* Collapses workout content */
+.collapsible-content {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.25s ease-in-out;
+}
+
+/* Toggles/expands workout div */
+.toggle:checked + .lbl-toggle + .collapsible-content {
+  max-height: 100vh;
+}
+
+.toggle:checked + .lbl-toggle::before {
+  transform: rotate(90deg) translateX(-3px);
+}
+
+.toggle:checked + .lbl-toggle {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Workout DIVs */
+.prevWorkoutDiv {
+  background-color: rgb(209, 100, 100);
+  width: 100%;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.currWorkoutDiv {
+  background-color: rgb(155, 223, 142);
+  width: 100%;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.nextWorkoutDiv {
+  background-color: rgb(86, 116, 201);
+  width: 100%;
+  padding: 15px;
+  margin: 0 auto;
+}
+/* End of workout DIVs */
+
+.prevWorkoutDiv p,
+.currWorkoutDiv p,
+.nextWorkoutDiv p {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+/* Motivational Quote */
+.quote-wrapper {
+  max-width: 800px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+#quote-author {
+  color: rgb(31, 76, 128);
+}
+/* End of motivational quote */
+/* End of main page */
